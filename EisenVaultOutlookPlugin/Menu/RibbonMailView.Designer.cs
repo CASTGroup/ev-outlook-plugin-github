@@ -58,7 +58,7 @@
             // btnEV
             // 
             this.btnEV.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.btnEV.Image = global::EisenVaultOutlookPlugin.Properties.Resources.logo2;
+            this.btnEV.Image = global::EisenVaultOutlookPlugin.Properties.Resources.logoalfrescosmall;
             this.btnEV.Label = "Save to DMS";
             this.btnEV.Name = "btnEV";
             this.btnEV.ShowImage = true;

@@ -31,7 +31,15 @@ namespace EisenVaultOutlookPlugin.Data.Modul
                 }
                 else
                 {
-                    Option.SaveUserInfo(server, username, password, jsonresult.entry.id, jsonresult.entry.userId);
+                    Settings settings = new Settings();
+                    settings.Server = server;
+                    settings.UserName = username;
+                    settings.Password = password;
+                    settings.Token = jsonresult.entry.id;
+                    settings.UserId = jsonresult.entry.userId;
+
+                    //Option.SaveUserInfo(server, username, password, jsonresult.entry.id, jsonresult.entry.userId); // vecchio
+                    Option.SaveUserInfo(settings);
                     return true;
                 }               
             }

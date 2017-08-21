@@ -1890,10 +1890,10 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>eisenvaultoutlookplugin.data</td><td>EisenVaultOutlookPlugin.Data.Primary_output</td><td>EisenVaultOutlookPlugin.Data.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;EisenVaultOutlookPlugin.Data&gt;|Built</td><td>3</td><td/></row>
-		<row><td>eisenvaultoutlookplugin.dll.</td><td>ISX_DEFAULTCOMPONENT</td><td>EISENV~1.MAN|EisenVaultOutlookPlugin.dll.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>F:\Projects\ODESK PROJECTS\2017\Vipul Swarup\EisenVaultOutlookPlugin\EisenVaultOutlookPlugin\bin\Debug\EisenVaultOutlookPlugin.dll.manifest</td><td>1</td><td/></row>
+		<row><td>eisenvaultoutlookplugin.dll.</td><td>ISX_DEFAULTCOMPONENT</td><td>EISENV~1.MAN|EisenVaultOutlookPlugin.dll.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Progetti\ev-outlook-plugin-github-master\EisenVaultOutlookPlugin\bin\Debug\EisenVaultOutlookPlugin.dll.manifest</td><td>1</td><td/></row>
 		<row><td>eisenvaultoutlookplugin.prim</td><td>EisenVaultOutlookPlugin.Primary_output</td><td>EisenVaultOutlookPlugin.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;EisenVaultOutlookPlugin&gt;|Built</td><td>3</td><td/></row>
-		<row><td>eisenvaultoutlookplugin.vsto</td><td>ISX_DEFAULTCOMPONENT</td><td>EISENV~1.VST|EisenVaultOutlookPlugin.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>F:\Projects\ODESK PROJECTS\2017\Vipul Swarup\EisenVaultOutlookPlugin\EisenVaultOutlookPlugin\bin\Debug\EisenVaultOutlookPlugin.vsto</td><td>1</td><td/></row>
-		<row><td>icon.ico</td><td>ISX_DEFAULTCOMPONENT</td><td>icon.ico</td><td>0</td><td/><td/><td/><td>1</td><td>F:\Projects\ODESK PROJECTS\2017\Vipul Swarup\EisenVaultOutlookPlugin\EisenVaultOutlookPlugin\icon.ico</td><td>1</td><td/></row>
+		<row><td>eisenvaultoutlookplugin.vsto</td><td>ISX_DEFAULTCOMPONENT</td><td>EISENV~1.VST|EisenVaultOutlookPlugin.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Progetti\ev-outlook-plugin-github-master\EisenVaultOutlookPlugin\bin\Debug\EisenVaultOutlookPlugin.vsto</td><td>1</td><td/></row>
+		<row><td>icon.ico</td><td>ISX_DEFAULTCOMPONENT</td><td>icon.ico</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Progetti\ev-outlook-plugin-github-master\EisenVaultOutlookPlugin\icon.ico</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2598,8 +2598,7 @@
 		<col def="I2">Order</col>
 		<col def="I2">ISSetupLocation</col>
 		<col def="S255">ISReleaseFlags</col>
-		<row><td>_C0223BAC_6095_47AC_95CC_51497C8CDC30_</td><td>Microsoft VSTO 2010 Runtime.prq</td><td>1</td><td/><td/></row>
-		<row><td>_C58BE253_BD6B_4AC6_BF58_A50D760CD957_</td><td>Microsoft .NET Framework 4.5 Full.prq</td><td>0</td><td/><td/></row>
+		<row><td>_D7B6AECA_A805_4A5D_8E2B_9A558336397C_</td><td>Microsoft .NET Framework 4.5 Full.prq</td><td/><td/><td/></row>
 	</table>
 
 	<table name="ISSetupType">
@@ -3737,7 +3736,7 @@
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>732263816</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td>http://www.EisenVault.com</td><td>0</td><td/><td>732236426</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>EisenVault</td><td>0</td><td/><td>732276810</td></row>
-		<row><td>ID_STRING4</td><td>1033</td><td>EisenVault Outlook Plugin</td><td>0</td><td/><td>732293802</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>EisenVault Outlook Plugin</td><td>0</td><td/><td>-1406854005</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>732263816</td></row>
 	</table>
 
@@ -3851,7 +3850,7 @@
 		<col def="V0">Data</col>
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
-		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;VSSolutionFolder&gt;\EisenVaultOutlookPlugin\icon.ico</td><td>0</td></row>
+		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;VSSolutionFolder&gt;\EisenVaultOutlookPlugin\Resources\alfresco.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -3984,7 +3983,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{1F2ECD13-CB34-4733-A8F2-A0EE61FB8CD1}</td></row>
 		<row><td>ISUSSignature</td><td>{16EFD1EF-08AC-4764-960A-D5B354E6990F}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewAppFiles,viewSystemSearch,viewObjects,viewUI,viewRelease,viewCustomActions,viewProject,viewUpgradePaths,viewUpdateService,viewShortcuts,viewRegistry,viewIniFiles,viewFileExtensions,viewEnvironmentVariables,viewVRoots,viewServices,viewTextMessages</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewAppFiles,viewSystemSearch,viewObjects,viewUI,viewRelease,viewCustomActions,viewProject,viewUpgradePaths,viewUpdateService,viewShortcuts,viewRegistry,viewIniFiles,viewFileExtensions,viewEnvironmentVariables,viewVRoots,viewServices,viewTextMessages,viewISToday,viewLearnMore</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>

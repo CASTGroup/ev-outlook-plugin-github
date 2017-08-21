@@ -23,6 +23,42 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DirectorySettings" msprop:Generator_TableClassName="DirectorySettingsDataTable" msprop:Generator_TableVarName="tableDirectorySettings" msprop:Generator_RowChangedName="DirectorySettingsRowChanged" msprop:Generator_TablePropName="DirectorySettings" msprop:Generator_RowDeletingName="DirectorySettingsRowDeleting" msprop:Generator_RowChangingName="DirectorySettingsRowChanging" msprop:Generator_RowEvHandlerName="DirectorySettingsRowChangeEventHandler" msprop:Generator_RowDeletedName="DirectorySettingsRowDeleted" msprop:Generator_RowClassName="DirectorySettingsRow" msprop:Generator_UserTableName="DirectorySettings" msprop:Generator_RowEvArgName="DirectorySettingsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DefaultFolder" msprop:Generator_ColumnVarNameInTable="columnDefaultFolder" msprop:Generator_ColumnPropNameInRow="DefaultFolder" msprop:Generator_ColumnPropNameInTable="DefaultFolderColumn" msprop:Generator_UserColumnName="DefaultFolder" type="xs:string" minOccurs="0" />
+              <xs:element name="LastUsedFolder" msprop:Generator_ColumnVarNameInTable="columnLastUsedFolder" msprop:Generator_ColumnPropNameInRow="LastUsedFolder" msprop:Generator_ColumnPropNameInTable="LastUsedFolderColumn" msprop:Generator_UserColumnName="LastUsedFolder" type="xs:string" minOccurs="0" />
+              <xs:element name="DefaultFolderTag" msprop:Generator_ColumnVarNameInTable="columnDefaultFolderTag" msprop:Generator_ColumnPropNameInRow="DefaultFolderTag" msprop:Generator_ColumnPropNameInTable="DefaultFolderTagColumn" msprop:Generator_UserColumnName="DefaultFolderTag" type="xs:string" minOccurs="0" />
+              <xs:element name="LastUsedFolderTag" msprop:Generator_ColumnVarNameInTable="columnLastUsedFolderTag" msprop:Generator_ColumnPropNameInRow="LastUsedFolderTag" msprop:Generator_ColumnPropNameInTable="LastUsedFolderTagColumn" msprop:Generator_UserColumnName="LastUsedFolderTag" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LabelSettings" msprop:Generator_TableClassName="LabelSettingsDataTable" msprop:Generator_TableVarName="tableLabelSettings" msprop:Generator_RowChangedName="LabelSettingsRowChanged" msprop:Generator_TablePropName="LabelSettings" msprop:Generator_RowDeletingName="LabelSettingsRowDeleting" msprop:Generator_RowChangingName="LabelSettingsRowChanging" msprop:Generator_RowEvHandlerName="LabelSettingsRowChangeEventHandler" msprop:Generator_RowDeletedName="LabelSettingsRowDeleted" msprop:Generator_RowClassName="LabelSettingsRow" msprop:Generator_UserTableName="LabelSettings" msprop:Generator_RowEvArgName="LabelSettingsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LoginExampleInstanceUrl" msprop:Generator_ColumnVarNameInTable="columnLoginExampleInstanceUrl" msprop:Generator_ColumnPropNameInRow="LoginExampleInstanceUrl" msprop:Generator_ColumnPropNameInTable="LoginExampleInstanceUrlColumn" msprop:Generator_UserColumnName="LoginExampleInstanceUrl" type="xs:string" minOccurs="0" />
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ImageSettings" msprop:Generator_TableClassName="ImageSettingsDataTable" msprop:Generator_TableVarName="tableImageSettings" msprop:Generator_TablePropName="ImageSettings" msprop:Generator_RowDeletingName="ImageSettingsRowDeleting" msprop:Generator_RowChangingName="ImageSettingsRowChanging" msprop:Generator_RowEvHandlerName="ImageSettingsRowChangeEventHandler" msprop:Generator_RowDeletedName="ImageSettingsRowDeleted" msprop:Generator_UserTableName="ImageSettings" msprop:Generator_RowChangedName="ImageSettingsRowChanged" msprop:Generator_RowEvArgName="ImageSettingsRowChangeEvent" msprop:Generator_RowClassName="ImageSettingsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Logo" msprop:Generator_ColumnVarNameInTable="columnLogo" msprop:Generator_ColumnPropNameInRow="Logo" msprop:Generator_ColumnPropNameInTable="LogoColumn" msprop:Generator_UserColumnName="Logo" type="xs:string" minOccurs="0" />
+              <xs:element name="HeadImage" msprop:Generator_ColumnVarNameInTable="columnHeadImage" msprop:Generator_ColumnPropNameInRow="HeadImage" msprop:Generator_ColumnPropNameInTable="HeadImageColumn" msprop:Generator_UserColumnName="HeadImage" type="xs:string" minOccurs="0" />
+              <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ActionSettings" msprop:Generator_TableClassName="ActionSettingsDataTable" msprop:Generator_TableVarName="tableActionSettings" msprop:Generator_RowChangedName="ActionSettingsRowChanged" msprop:Generator_TablePropName="ActionSettings" msprop:Generator_RowDeletingName="ActionSettingsRowDeleting" msprop:Generator_RowChangingName="ActionSettingsRowChanging" msprop:Generator_RowEvHandlerName="ActionSettingsRowChangeEventHandler" msprop:Generator_RowDeletedName="ActionSettingsRowDeleted" msprop:Generator_RowClassName="ActionSettingsRow" msprop:Generator_UserTableName="ActionSettings" msprop:Generator_RowEvArgName="ActionSettingsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DisableStandardSave" msprop:Generator_ColumnVarNameInTable="columnDisableStandardSave" msprop:Generator_ColumnPropNameInRow="DisableStandardSave" msprop:Generator_ColumnPropNameInTable="DisableStandardSaveColumn" msprop:Generator_UserColumnName="DisableStandardSave" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="DisableDefaultSave" msprop:Generator_ColumnVarNameInTable="columnDisableDefaultSave" msprop:Generator_ColumnPropNameInRow="DisableDefaultSave" msprop:Generator_ColumnPropNameInTable="DisableDefaultSaveColumn" msprop:Generator_UserColumnName="DisableDefaultSave" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="DisableLastSave" msprop:Generator_ColumnVarNameInTable="columnDisableLastSave" msprop:Generator_ColumnPropNameInRow="DisableLastSave" msprop:Generator_ColumnPropNameInTable="DisableLastSaveColumn" msprop:Generator_UserColumnName="DisableLastSave" type="xs:boolean" default="false" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

@@ -37,13 +37,13 @@
             this.txtServer = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblExampleUrl = new System.Windows.Forms.Label();
             this.txtError = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgLoad = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -103,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 93);
+            this.label3.Location = new System.Drawing.Point(9, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 5;
@@ -111,7 +111,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lblExampleUrl);
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
@@ -125,33 +125,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Info";
             // 
-            // label4
+            // lblExampleUrl
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(94, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(203, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "(Example: https://example.eisenvault.net)";
+            this.lblExampleUrl.AutoSize = true;
+            this.lblExampleUrl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblExampleUrl.Location = new System.Drawing.Point(94, 116);
+            this.lblExampleUrl.Name = "lblExampleUrl";
+            this.lblExampleUrl.Size = new System.Drawing.Size(168, 13);
+            this.lblExampleUrl.TabIndex = 7;
+            this.lblExampleUrl.Text = "(Example: http://srvalfresco:8080)";
             // 
             // txtError
             // 
             this.txtError.ForeColor = System.Drawing.Color.Red;
-            this.txtError.Location = new System.Drawing.Point(106, 259);
+            this.txtError.Location = new System.Drawing.Point(15, 259);
             this.txtError.Name = "txtError";
             this.txtError.Size = new System.Drawing.Size(369, 39);
             this.txtError.TabIndex = 8;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::EisenVaultOutlookPlugin.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(560, 81);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
             // 
             // imgLoad
             // 
@@ -163,6 +153,16 @@
             this.imgLoad.TabIndex = 16;
             this.imgLoad.TabStop = false;
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Image = global::EisenVaultOutlookPlugin.Properties.Resources.logoalfresco;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(12, 12);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(560, 81);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxLogo.TabIndex = 9;
+            this.pictureBoxLogo.TabStop = false;
+            // 
             // FormLogin
             // 
             this.AcceptButton = this.btnLogin;
@@ -171,7 +171,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(584, 345);
             this.Controls.Add(this.imgLoad);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.txtError);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLogin);
@@ -182,10 +182,11 @@
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.FormLogin_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -201,8 +202,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label txtError;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.Label lblExampleUrl;
         private System.Windows.Forms.PictureBox imgLoad;
     }
 }
