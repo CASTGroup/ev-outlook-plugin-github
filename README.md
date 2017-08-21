@@ -4,6 +4,15 @@ We have added some feature to the original version:
 * Last used Folder: you can save in the last used folder
 * Settings. It's now possible to specify different icons and images. It's also possibile to specify which save option the user can see.
 
+Here some screenshot:
+![Settings page 1](gfxRead/001.png)
+![Settings page 2](gfxRead/002.png)
+![Settings page 3](gfxRead/003.png)
+![Settings page 4](gfxRead/004.png)
+![Main windows](gfxRead/005.png)
+![Login windows](gfxRead/006.png)
+
+
 Under this line the original Eisenvault's Readme.md
 
 --
