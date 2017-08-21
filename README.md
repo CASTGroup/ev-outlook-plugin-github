@@ -1,7 +1,11 @@
 21/08/2017
-added buttons for upload files in default folder and in last used folder.
-added settings section.
-layout changed and other minor chages
+We have added some feature to the original version:
+* Default Folder: in every client you can specify a default save folder
+* Last used Folder: you can save in the last used folder
+* Settings. It's now possible to specify different icons and images. It's also possibile to specify which save option the user can see.
+
+Under this line the original Eisenvault's Readme.md
+
 --
 
 Microsoft Outlook Plugin for Alfresco 5.2 from EisenVault. This allows one-way communication - i.e. saving of emails and attachments from Outlook to Alfresco. It has been tested with Outlook 2010, 2013 and 2016 on Windows 7, 8.1 and 10. 
