@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EisenVaultOutlookPlugin.Data.Modul;
+using EisenVaultOutlookPlugin.Data.Entity;
 
 namespace EisenVaultOutlookPlugin.Forms
 {
@@ -98,6 +99,66 @@ namespace EisenVaultOutlookPlugin.Forms
                 imgLoad.Visible = false;
                 btnLogin.Enabled = true;
             }
+        }
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            ReloadSettings();
+        }
+        //private void ReloadSettings()
+        //{
+        //    Option.Read();
+        //    LabelSettings labelSettings = Option.GetLabelSettings();
+        //    if (labelSettings != null)
+        //    {
+        //        lblExampleUrl.Text = labelSettings.LoginExampleInstanceUrl;
+        //    }
+        //}
+        private void ReloadSettings()
+        {
+            Option.Read();
+
+            LabelSettings labelSettings = Option.GetLabelSettings();
+            if (labelSettings != null)
+            {
+                if (labelSettings.LoginExampleInstanceUrl != null)
+                {
+                    lblExampleUrl.Text = labelSettings.LoginExampleInstanceUrl;
+                }
+            }
+
+            ImageSettings imageSettings = Option.GetimageSettings();
+            if (imageSettings != null)
+            {
+                if (!String.IsNullOrWhiteSpace(imageSettings.Logo))
+                {
+                    System.Drawing.Image img = System.Drawing.Image.FromFile(imageSettings.Logo);
+                    if (img.Width > 570 || img.Height > 90)
+                    {
+                        pictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                    else
+                    {
+                        pictureBoxLogo.SizeMode = PictureBoxSizeMode.CenterImage;
+                    }
+
+
+                    pictureBoxLogo.ImageLocation = imageSettings.Logo;
+                }
+
+                if (!String.IsNullOrWhiteSpace(imageSettings.Icon))
+                {
+                    this.Icon = new Icon(imageSettings.Icon);
+                }
+                //else
+                //{
+                //    this.Icon = new Icon("Resources/alfresco.ico");
+                //}
+
+            }
+
+
+
+
         }
     }
 }

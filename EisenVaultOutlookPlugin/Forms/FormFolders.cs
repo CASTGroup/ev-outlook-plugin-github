@@ -26,7 +26,23 @@ namespace EisenVaultOutlookPlugin.Forms
         }
         public string CreatedFolderId { get; set; }
         public string CreatedFolderName { get; set; }
-
+        private string DefaultFolderName
+        {
+            get { return txtDefaultFolderName.Text; }
+            set { txtDefaultFolderName.Text = value; }
+        }
+        private string DefaultFolderTag { get; set; }
+        private string LastUsedFolder
+        {
+            get { return txtLasUsedFolder.Text; }
+            set { txtLasUsedFolder.Text = value; }
+        }
+        private string LastUsedFolderTag { get; set; }
+        private string LabelTitle
+        {
+            get { return lblTitle.Text; }
+            set { lblTitle.Text = value; }
+        }
         public FormFolders()
         {
             InitializeComponent();
@@ -38,9 +54,11 @@ namespace EisenVaultOutlookPlugin.Forms
 
         private async void FormFolders_Load(object sender, EventArgs e)
         {
+            ReloadSettings();
+
             Nodes nodes = new Nodes();
             imgLoad.Visible = true;
-            btnUpload.Enabled = false;
+            btnUploadSelectedFolder.Enabled = false;
             var list = await nodes.Get();
             List<string> acceptFolders = new List<string>()
             {
@@ -60,7 +78,7 @@ namespace EisenVaultOutlookPlugin.Forms
                 }
             }
             imgLoad.Visible = false;
-            btnUpload.Enabled = true;
+            btnUploadSelectedFolder.Enabled = true;
         }
        
 
@@ -79,7 +97,7 @@ namespace EisenVaultOutlookPlugin.Forms
             {
                 Nodes nodes = new Nodes();
                 imgLoad.Visible = true;
-                btnUpload.Enabled = false;
+                btnUploadSelectedFolder.Enabled = false;
                 var list =await nodes.Get(tagInfo.Id);                
                 foreach (NodeEntry entry in list)
                 {
@@ -104,7 +122,7 @@ namespace EisenVaultOutlookPlugin.Forms
                 tagInfo.IsLoaded = true;
 
                 imgLoad.Visible = false;
-                btnUpload.Enabled = true;              
+                btnUploadSelectedFolder.Enabled = true;              
             }
             if (isSiteNode || isSiteChild)
             {
@@ -130,12 +148,20 @@ namespace EisenVaultOutlookPlugin.Forms
             NodeTag tag = node?.Tag as NodeTag;            
             if (tag != null)
             {
-                imgLoad.Visible = true; btnUpload.Enabled = false;
+                imgLoad.Visible = true; btnUploadSelectedFolder.Enabled = false;
                 Controller controller= new Controller();
                 int? folderCount =  node?.Nodes?.Count;
                 bool isUploaded = await controller.UploadEmail(EmailItem, tag.Id, folderCount);
                 if (isUploaded)
                 {
+                    Option.Read();
+                    DirectorySettings dirSettings = Option.GetDirectorySettings();
+                    LastUsedFolder = node.FullPath;
+                    LastUsedFolderTag = tag.Id;
+                    dirSettings.LastUsedFolder = LastUsedFolder;
+                    dirSettings.LastUsedFolderTag = LastUsedFolderTag;
+                    Option.SaveDirectorySettings(dirSettings);
+
                     MessageBox.Show("File(s) uploaded successfully");
                     this.Close();
                 }
@@ -147,7 +173,7 @@ namespace EisenVaultOutlookPlugin.Forms
                         MessageBox.Show(controller.Error);
                 }
             }
-            imgLoad.Visible = false ; btnUpload.Enabled = true;
+            imgLoad.Visible = false ; btnUploadSelectedFolder.Enabled = true;
 
         }
 
@@ -192,6 +218,179 @@ namespace EisenVaultOutlookPlugin.Forms
                                 
             }
 
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            FormConfig frm = new FormConfig();
+            frm.ShowDialog(ThisAddIn.OwnerWindow);
+
+            ReloadSettings();
+
+
+            //Option.Read();
+            //DirectorySettings dirSettings = Option.GetDirectorySettings();
+            //if (dirSettings != null)
+            //{
+            //    DefaultFolderName = dirSettings.DefaultFolder;
+            //    DefaultFolderTag = dirSettings.DefaultFolderTag;
+
+            //    txtDefaultFolderName.Text = DefaultFolderName;
+            //}
+            
+        }
+
+        private async void btnUploadDefaultFolder_Click(object sender, EventArgs e)
+        {
+
+            if (!String.IsNullOrWhiteSpace(DefaultFolderTag))
+            {
+                imgLoad.Visible = true;
+                btnUploadDefaultFolder.Enabled = false;
+
+                Controller controller = new Controller();
+                bool isUploaded = await controller.UploadEmail(EmailItem, DefaultFolderTag, 0);
+
+                if (isUploaded)
+                {
+                    Option.Read();
+                    DirectorySettings dirSettings = Option.GetDirectorySettings();
+                    LastUsedFolder = DefaultFolderName;
+                    LastUsedFolderTag = DefaultFolderTag;
+                    dirSettings.LastUsedFolder = LastUsedFolder;
+                    dirSettings.LastUsedFolderTag = LastUsedFolderTag;
+                    Option.SaveDirectorySettings(dirSettings);
+
+                    MessageBox.Show("File(s) uploaded successfully");
+                    this.Close();
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(controller.Error))
+                        MessageBox.Show("Error while uploading file, Please try again!!");
+                    else
+                        MessageBox.Show(controller.Error);
+                }
+
+                imgLoad.Visible = false;
+                btnUploadDefaultFolder.Enabled = true;
+            }
+        }
+        private async void btnUploadLastFolder_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(LastUsedFolderTag))
+            {
+                imgLoad.Visible = true;
+                btnUploadDefaultFolder.Enabled = false;
+
+                Controller controller = new Controller();
+                bool isUploaded = await controller.UploadEmail(EmailItem, LastUsedFolderTag, 0);
+
+                if (isUploaded)
+                {
+                    //Option.Read();
+                    //DirectorySettings dirSettings = Option.GetDirectorySettings();
+                    //LastUsedFolder = DefaultFolderName;
+                    //LastUsedFolderTag = DefaultFolderTag;
+                    //dirSettings.LastUsedFolder = LastUsedFolder;
+                    //dirSettings.LastUsedFolderTag = LastUsedFolderTag;
+                    //Option.SaveDirectorySettings(dirSettings);
+
+                    MessageBox.Show("File(s) uploaded successfully");
+                    this.Close();
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(controller.Error))
+                        MessageBox.Show("Error while uploading file, Please try again!!");
+                    else
+                        MessageBox.Show(controller.Error);
+                }
+
+                imgLoad.Visible = false;
+                btnUploadDefaultFolder.Enabled = true;
+            }
+        }
+
+        private void ReloadSettings()
+        {
+            Option.Read();
+
+            LabelSettings labelSettings = Option.GetLabelSettings();
+            if (labelSettings != null)
+            {
+                if (labelSettings.Title != null)
+                {
+                    LabelTitle = labelSettings.Title;
+                }
+            }
+
+            ActionSettings actionSettings = Option.GetActionSettings();
+            if (actionSettings != null)
+            {
+                btnUploadSelectedFolder.Visible = !actionSettings.DisableStandardSave;
+                btnUploadDefaultFolder.Visible = !actionSettings.DisableDefaultdSave;
+                btnUploadLastFolder.Visible = !actionSettings.DisableLastSave;
+                pnltxtDefaultFolder.Visible = !actionSettings.DisableDefaultdSave;
+                pnltxtLastFolder.Visible = !actionSettings.DisableLastSave;
+            }
+
+           
+            DirectorySettings dirSettings = Option.GetDirectorySettings();
+            if (dirSettings != null)
+            {
+                DefaultFolderTag = dirSettings.DefaultFolderTag;
+                DefaultFolderName = dirSettings.DefaultFolder;
+
+                if (!String.IsNullOrWhiteSpace(DefaultFolderTag))
+                {
+                    btnUploadDefaultFolder.Enabled = true;
+                    
+                }
+                else
+                {
+                    btnUploadDefaultFolder.Enabled = false;
+                }
+
+                LastUsedFolder = dirSettings.LastUsedFolder;
+                LastUsedFolderTag = dirSettings.LastUsedFolderTag;
+
+                if (!String.IsNullOrWhiteSpace(LastUsedFolderTag))
+                {
+                    btnUploadLastFolder.Enabled = true;
+                    
+                }
+                else
+                {
+                    btnUploadLastFolder.Enabled = false;
+                }
+            }
+
+
+            ImageSettings imageSettings = Option.GetimageSettings();
+            if (imageSettings != null)
+            {
+                if (!String.IsNullOrWhiteSpace(imageSettings.HeadImage))
+                {
+                    pictureBoxHeadImage.ImageLocation = imageSettings.HeadImage;
+                }
+                else
+                {
+                    pictureBoxHeadImage.Image = Properties.Resources.logoalfrescosmall;
+                }
+                try
+                {
+                    if (!String.IsNullOrWhiteSpace(imageSettings.Icon))
+                    {
+                        this.Icon = new Icon(imageSettings.Icon);
+                    }
+                }
+                catch (Exception ex)
+                {
+                   
+                }
+                
+            }
         }
     }
 }

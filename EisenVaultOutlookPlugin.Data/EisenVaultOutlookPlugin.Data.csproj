@@ -53,11 +53,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_Config.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Entity\ActionSettings.cs" />
+    <Compile Include="Entity\DirectorySettings.cs" />
     <Compile Include="Entity\Error.cs" />
     <Compile Include="Entity\Folder.cs" />
+    <Compile Include="Entity\ImageSettings.cs" />
+    <Compile Include="Entity\LabelSettings.cs" />
     <Compile Include="Entity\Node.cs" />
     <Compile Include="Entity\Pagination.cs" />
     <Compile Include="Entity\PluginUserInfo.cs" />
+    <Compile Include="Entity\Settings.cs" />
     <Compile Include="Entity\Ticket.cs" />
     <Compile Include="Entity\UploadNode.cs" />
     <Compile Include="Entity\UserInfo.cs" />

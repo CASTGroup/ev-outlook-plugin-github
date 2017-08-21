@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,11 +51,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EisenVaultOutlookPlugin.Data\EisenVaultOutlookPlugin.Data.csproj">
       <Project>{d742087d-6887-4e7e-96bf-471342e5fa87}</Project>
       <Name>EisenVaultOutlookPlugin.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EisenVaultOutlookPlugin\EisenVaultOutlookPlugin.csproj">
+      <Project>{498AA284-8662-4E3D-9F60-BCF579F8DC20}</Project>
+      <Name>EisenVaultOutlookPlugin</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
