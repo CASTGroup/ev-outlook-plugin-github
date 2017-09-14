@@ -60,23 +60,37 @@ namespace EisenVaultOutlookPlugin.Forms
             imgLoad.Visible = true;
             btnUploadSelectedFolder.Enabled = false;
             var list = await nodes.Get();
-            List<string> acceptFolders = new List<string>()
-            {
-                "shared","sites","user homes"
-            };
-            foreach (NodeEntry entry in list.Where(c=> acceptFolders.Any(x=> x.Contains(c.name.ToLower()))))
+            //List<string> acceptFolders = new List<string>()
+            //{
+            //    "shared","sites","user homes"
+            //};
+            foreach (NodeEntry entry in list)
             {
                 if (entry.isFolder)
                 {
-                    var node = treeViewNodes.Nodes.Add(entry.id, entry.name);                    
+                    var node = treeViewNodes.Nodes.Add(entry.id, entry.name);
                     node.Tag = new NodeTag()
                     {
-                      Id  = entry.id,
-                      IsFolder = entry.isFolder,
-                      IsLoaded = false
+                        Id = entry.id,
+                        IsFolder = entry.isFolder,
+                        IsLoaded = false
                     };
                 }
             }
+
+            //foreach (NodeEntry entry in list.Where(c=> acceptFolders.Any(x=> x.Contains(c.name.ToLower()))))
+            //{
+            //    if (entry.isFolder)
+            //    {
+            //        var node = treeViewNodes.Nodes.Add(entry.id, entry.name);                    
+            //        node.Tag = new NodeTag()
+            //        {
+            //          Id  = entry.id,
+            //          IsFolder = entry.isFolder,
+            //          IsLoaded = false
+            //        };
+            //    }
+            //}
             imgLoad.Visible = false;
             btnUploadSelectedFolder.Enabled = true;
         }

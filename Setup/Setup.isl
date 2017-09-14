@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
-		<subject>EisenVault Outlook Plugin</subject>
+		<subject>##ID_STRING5##</subject>
 		<author>##ID_STRING3##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
@@ -1144,12 +1144,12 @@
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
-		<row><td>EISENVAULT</td><td>ProgramFilesFolder</td><td>EISENV~1|EisenVault</td><td/><td>0</td><td/></row>
-		<row><td>EISENVAULT_SETUP</td><td>ProgramFilesFolder</td><td>EISENV~1|EisenVault</td><td/><td>0</td><td/></row>
+		<row><td>EISENVAULT</td><td>ProgramFilesFolder</td><td>ALFRES~1|AlfrescoOutlookPlugin</td><td/><td>0</td><td/></row>
+		<row><td>EISENVAULT_SETUP</td><td>ProgramFilesFolder</td><td>ALFRES~1|AlfrescoOutlookPlugin</td><td/><td>0</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
-		<row><td>INSTALLDIR</td><td>EISENVAULT</td><td>.</td><td/><td>0</td><td/></row>
+		<row><td>INSTALLDIR</td><td>EISENVAULT_SETUP</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>ISCommonFilesFolder</td><td>CommonFilesFolder</td><td>Instal~1|InstallShield</td><td/><td>0</td><td/></row>
 		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
@@ -1177,8 +1177,8 @@
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
-		<row><td>eisenv_1_eisenvault</td><td>ProgramMenuFolder</td><td>eisenv~1|eisenvault</td><td/><td>1</td><td/></row>
-		<row><td>eisenvault_setup</td><td>eisenv_1_eisenvault</td><td>EISENV~1|eisenvault setup</td><td/><td>1</td><td/></row>
+		<row><td>eisenv_1_eisenvault</td><td>ProgramMenuFolder</td><td>ALFRES~1|Alfresco outlook plugin</td><td/><td>1</td><td/></row>
+		<row><td>eisenvault_setup</td><td>eisenv_1_eisenvault</td><td>ALFRES~1|Alfresco outlook plugin setup</td><td/><td>1</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -2632,7 +2632,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>EisenVault</td><td>0</td><td/><td>732276810</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>Alfresco</td><td>0</td><td/><td>1957006250</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>732263816</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>732263816</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>732271209</td></row>
@@ -3734,9 +3734,9 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>732263816</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>732263816</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>732263816</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.EisenVault.com</td><td>0</td><td/><td>732236426</td></row>
-		<row><td>ID_STRING3</td><td>1033</td><td>EisenVault</td><td>0</td><td/><td>732276810</td></row>
-		<row><td>ID_STRING4</td><td>1033</td><td>EisenVault Outlook Plugin</td><td>0</td><td/><td>-1406854005</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td/><td>0</td><td/><td>1956991882</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>Alfresco Outlook Plugin</td><td>0</td><td/><td>1957020586</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>Alfresco Outlook Plugin</td><td>0</td><td/><td>1956985738</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>732263816</td></row>
 	</table>
 
@@ -4292,7 +4292,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ARPINSTALLLOCATION</td><td/><td/></row>
 		<row><td>ARPPRODUCTICON</td><td>ARPPRODUCTICON.exe</td><td/></row>
 		<row><td>ARPSIZE</td><td/><td/></row>
-		<row><td>ARPURLINFOABOUT</td><td>##ID_STRING2##</td><td/></row>
 		<row><td>AgreeToLicense</td><td>No</td><td/></row>
 		<row><td>ApplicationUsers</td><td>AllUsers</td><td/></row>
 		<row><td>DWUSINTERVAL</td><td>30</td><td/></row>
@@ -4357,7 +4356,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{27DC0988-3937-4987-BEB0-E62C2623316E}</td><td/></row>
-		<row><td>ProductName</td><td>EisenVault Outlook Plugin</td><td/></row>
+		<row><td>ProductName</td><td>Alfresco Outlook Plugin</td><td/></row>
 		<row><td>ProductVersion</td><td>1.0.0</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
