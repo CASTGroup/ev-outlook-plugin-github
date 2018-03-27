@@ -38,10 +38,12 @@
             this.pictureBoxIconConfig = new System.Windows.Forms.PictureBox();
             this.btnSaveImageIcon = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.pictureBoxImageConfig = new System.Windows.Forms.PictureBox();
             this.btnSelectImage = new System.Windows.Forms.Button();
             this.btnSaveImage = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.pictureBoxLogoConfig = new System.Windows.Forms.PictureBox();
             this.btnSelectImageLogo = new System.Windows.Forms.Button();
             this.btnSaveImageLogo = new System.Windows.Forms.Button();
@@ -74,8 +76,6 @@
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogIcon = new System.Windows.Forms.OpenFileDialog();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabImage.SuspendLayout();
@@ -103,7 +103,7 @@
             this.groupBox1.Size = new System.Drawing.Size(564, 429);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Configuration";
+            this.groupBox1.Text = "Configurazione";
             // 
             // tabControl1
             // 
@@ -129,7 +129,7 @@
             this.tabImage.Padding = new System.Windows.Forms.Padding(3);
             this.tabImage.Size = new System.Drawing.Size(550, 384);
             this.tabImage.TabIndex = 0;
-            this.tabImage.Text = "Images";
+            this.tabImage.Text = "Immagini";
             this.tabImage.UseVisualStyleBackColor = true;
             // 
             // groupBox6
@@ -142,7 +142,7 @@
             this.groupBox6.Size = new System.Drawing.Size(538, 77);
             this.groupBox6.TabIndex = 34;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Icon";
+            this.groupBox6.Text = "Icona";
             // 
             // btnSelectImageIcon
             // 
@@ -154,7 +154,7 @@
             this.btnSelectImageIcon.Name = "btnSelectImageIcon";
             this.btnSelectImageIcon.Size = new System.Drawing.Size(85, 23);
             this.btnSelectImageIcon.TabIndex = 30;
-            this.btnSelectImageIcon.Text = "Select";
+            this.btnSelectImageIcon.Text = "Seleziona";
             this.btnSelectImageIcon.UseVisualStyleBackColor = false;
             this.btnSelectImageIcon.Click += new System.EventHandler(this.btnSelectImageIcon_Click);
             // 
@@ -180,7 +180,7 @@
             this.btnSaveImageIcon.Name = "btnSaveImageIcon";
             this.btnSaveImageIcon.Size = new System.Drawing.Size(85, 23);
             this.btnSaveImageIcon.TabIndex = 31;
-            this.btnSaveImageIcon.Text = "Save";
+            this.btnSaveImageIcon.Text = "Salva";
             this.btnSaveImageIcon.UseVisualStyleBackColor = false;
             this.btnSaveImageIcon.Click += new System.EventHandler(this.btnSaveImageIcon_Click);
             // 
@@ -195,7 +195,16 @@
             this.groupBox5.Size = new System.Drawing.Size(538, 80);
             this.groupBox5.TabIndex = 33;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Image";
+            this.groupBox5.Text = "Immagine";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(347, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(174, 13);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Dimensione raccomandata: 50 x 50";
             // 
             // pictureBoxImageConfig
             // 
@@ -219,7 +228,7 @@
             this.btnSelectImage.Name = "btnSelectImage";
             this.btnSelectImage.Size = new System.Drawing.Size(85, 23);
             this.btnSelectImage.TabIndex = 25;
-            this.btnSelectImage.Text = "Select";
+            this.btnSelectImage.Text = "Seleziona";
             this.btnSelectImage.UseVisualStyleBackColor = false;
             this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
             // 
@@ -233,7 +242,7 @@
             this.btnSaveImage.Name = "btnSaveImage";
             this.btnSaveImage.Size = new System.Drawing.Size(85, 23);
             this.btnSaveImage.TabIndex = 26;
-            this.btnSaveImage.Text = "Save";
+            this.btnSaveImage.Text = "Salva";
             this.btnSaveImage.UseVisualStyleBackColor = false;
             this.btnSaveImage.Click += new System.EventHandler(this.btnSaveImage_Click);
             // 
@@ -249,6 +258,15 @@
             this.groupBox4.TabIndex = 32;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Logo";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(347, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(180, 13);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Dimensione raccomandata: 560 x 81";
             // 
             // pictureBoxLogoConfig
             // 
@@ -272,7 +290,7 @@
             this.btnSelectImageLogo.Name = "btnSelectImageLogo";
             this.btnSelectImageLogo.Size = new System.Drawing.Size(85, 23);
             this.btnSelectImageLogo.TabIndex = 20;
-            this.btnSelectImageLogo.Text = "Select";
+            this.btnSelectImageLogo.Text = "Seleziona";
             this.btnSelectImageLogo.UseVisualStyleBackColor = false;
             this.btnSelectImageLogo.Click += new System.EventHandler(this.btnSelectImageLogo_Click);
             // 
@@ -286,7 +304,7 @@
             this.btnSaveImageLogo.Name = "btnSaveImageLogo";
             this.btnSaveImageLogo.Size = new System.Drawing.Size(85, 23);
             this.btnSaveImageLogo.TabIndex = 21;
-            this.btnSaveImageLogo.Text = "Save";
+            this.btnSaveImageLogo.Text = "Salva";
             this.btnSaveImageLogo.UseVisualStyleBackColor = false;
             this.btnSaveImageLogo.Click += new System.EventHandler(this.btnSaveImageLogo_Click);
             // 
@@ -296,11 +314,11 @@
             this.btnRestoreImages.FlatAppearance.BorderSize = 0;
             this.btnRestoreImages.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRestoreImages.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRestoreImages.Location = new System.Drawing.Point(412, 347);
+            this.btnRestoreImages.Location = new System.Drawing.Point(362, 347);
             this.btnRestoreImages.Name = "btnRestoreImages";
-            this.btnRestoreImages.Size = new System.Drawing.Size(132, 31);
+            this.btnRestoreImages.Size = new System.Drawing.Size(182, 31);
             this.btnRestoreImages.TabIndex = 27;
-            this.btnRestoreImages.Text = "Restore Default Images";
+            this.btnRestoreImages.Text = "Ripristina Immagini di Default";
             this.btnRestoreImages.UseVisualStyleBackColor = false;
             this.btnRestoreImages.Click += new System.EventHandler(this.btnRestoreImages_Click);
             // 
@@ -312,7 +330,7 @@
             this.tabDefaultFolder.Padding = new System.Windows.Forms.Padding(3);
             this.tabDefaultFolder.Size = new System.Drawing.Size(550, 384);
             this.tabDefaultFolder.TabIndex = 1;
-            this.tabDefaultFolder.Text = "Default Folder";
+            this.tabDefaultFolder.Text = "Cartella di Default";
             this.tabDefaultFolder.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -338,18 +356,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(4, 79);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 25;
-            this.label3.Text = "Node Name";
+            this.label3.Text = "Nome del nodo";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(4, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 24;
-            this.label2.Text = "Node Tag";
+            this.label2.Text = "Tag del nodo";
             // 
             // txtDefaultFolderName
             // 
@@ -366,11 +384,11 @@
             this.btnSelectDefaultFolder.FlatAppearance.BorderSize = 0;
             this.btnSelectDefaultFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelectDefaultFolder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSelectDefaultFolder.Location = new System.Drawing.Point(431, 344);
+            this.btnSelectDefaultFolder.Location = new System.Drawing.Point(399, 344);
             this.btnSelectDefaultFolder.Name = "btnSelectDefaultFolder";
-            this.btnSelectDefaultFolder.Size = new System.Drawing.Size(110, 31);
+            this.btnSelectDefaultFolder.Size = new System.Drawing.Size(142, 31);
             this.btnSelectDefaultFolder.TabIndex = 22;
-            this.btnSelectDefaultFolder.Text = "Save default folder";
+            this.btnSelectDefaultFolder.Text = "Salva Cartella di default";
             this.btnSelectDefaultFolder.UseVisualStyleBackColor = false;
             this.btnSelectDefaultFolder.Click += new System.EventHandler(this.btnSelectDefaultFolder_Click);
             // 
@@ -393,7 +411,7 @@
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(85, 23);
             this.btnCreate.TabIndex = 19;
-            this.btnCreate.Text = "Create Folder";
+            this.btnCreate.Text = "Crea Cartella";
             this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
@@ -433,9 +451,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 13);
+            this.label1.Size = new System.Drawing.Size(109, 13);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Default upload folder";
+            this.label1.Text = "Cartella di Default";
             // 
             // tabLabels
             // 
@@ -446,7 +464,7 @@
             this.tabLabels.Padding = new System.Windows.Forms.Padding(3);
             this.tabLabels.Size = new System.Drawing.Size(550, 384);
             this.tabLabels.TabIndex = 2;
-            this.tabLabels.Text = "Labels";
+            this.tabLabels.Text = "Testi";
             this.tabLabels.UseVisualStyleBackColor = true;
             // 
             // btnSaveLabelSettings
@@ -474,11 +492,11 @@
             this.groupBox2.Size = new System.Drawing.Size(541, 100);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Label configuration";
+            this.groupBox2.Text = "Configurazione testi";
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(84, 21);
+            this.txtTitle.Location = new System.Drawing.Point(122, 21);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(266, 20);
             this.txtTitle.TabIndex = 3;
@@ -486,7 +504,7 @@
             // 
             // txtLabelLoginExampleInstanceUrl
             // 
-            this.txtLabelLoginExampleInstanceUrl.Location = new System.Drawing.Point(84, 47);
+            this.txtLabelLoginExampleInstanceUrl.Location = new System.Drawing.Point(122, 47);
             this.txtLabelLoginExampleInstanceUrl.Name = "txtLabelLoginExampleInstanceUrl";
             this.txtLabelLoginExampleInstanceUrl.Size = new System.Drawing.Size(266, 20);
             this.txtLabelLoginExampleInstanceUrl.TabIndex = 1;
@@ -495,20 +513,20 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(47, 24);
+            this.label7.Location = new System.Drawing.Point(81, 24);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 13);
+            this.label7.Size = new System.Drawing.Size(33, 13);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Title";
+            this.label7.Text = "Titolo";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 50);
+            this.label4.Location = new System.Drawing.Point(16, 50);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.Size = new System.Drawing.Size(98, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Example Url";
+            this.label4.Text = "Indirizzo di esempio";
             // 
             // tabActions
             // 
@@ -519,7 +537,7 @@
             this.tabActions.Padding = new System.Windows.Forms.Padding(3);
             this.tabActions.Size = new System.Drawing.Size(550, 384);
             this.tabActions.TabIndex = 3;
-            this.tabActions.Text = "Actions";
+            this.tabActions.Text = "Azioni";
             this.tabActions.UseVisualStyleBackColor = true;
             // 
             // btnSaveActionSettings
@@ -546,7 +564,7 @@
             this.groupBox3.Size = new System.Drawing.Size(538, 124);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Enable / Disable Buttons";
+            this.groupBox3.Text = "Abilita / Disabilita bottoni";
             // 
             // chkDisableLastUsedSaveButton
             // 
@@ -554,9 +572,9 @@
             this.chkDisableLastUsedSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkDisableLastUsedSaveButton.Location = new System.Drawing.Point(22, 74);
             this.chkDisableLastUsedSaveButton.Name = "chkDisableLastUsedSaveButton";
-            this.chkDisableLastUsedSaveButton.Size = new System.Drawing.Size(263, 21);
+            this.chkDisableLastUsedSaveButton.Size = new System.Drawing.Size(416, 21);
             this.chkDisableLastUsedSaveButton.TabIndex = 3;
-            this.chkDisableLastUsedSaveButton.Text = "Disable \"last used folder\" save button";
+            this.chkDisableLastUsedSaveButton.Text = "Disabilita bottone di salvataggio \"ULTIMA CARTELLA USATA\"";
             this.chkDisableLastUsedSaveButton.UseVisualStyleBackColor = true;
             // 
             // chkDisableDefaultSaveButton
@@ -565,9 +583,9 @@
             this.chkDisableDefaultSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkDisableDefaultSaveButton.Location = new System.Drawing.Point(22, 51);
             this.chkDisableDefaultSaveButton.Name = "chkDisableDefaultSaveButton";
-            this.chkDisableDefaultSaveButton.Size = new System.Drawing.Size(249, 21);
+            this.chkDisableDefaultSaveButton.Size = new System.Drawing.Size(396, 21);
             this.chkDisableDefaultSaveButton.TabIndex = 2;
-            this.chkDisableDefaultSaveButton.Text = "Disable \"default folder\" save button";
+            this.chkDisableDefaultSaveButton.Text = "Disabilita bottone di salvataggio \"CARTELLA DI DEFAULT\"";
             this.chkDisableDefaultSaveButton.UseVisualStyleBackColor = true;
             // 
             // chkDisableStandardSaveButton
@@ -576,9 +594,9 @@
             this.chkDisableStandardSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkDisableStandardSaveButton.Location = new System.Drawing.Point(22, 28);
             this.chkDisableStandardSaveButton.Name = "chkDisableStandardSaveButton";
-            this.chkDisableStandardSaveButton.Size = new System.Drawing.Size(222, 21);
+            this.chkDisableStandardSaveButton.Size = new System.Drawing.Size(317, 21);
             this.chkDisableStandardSaveButton.TabIndex = 1;
-            this.chkDisableStandardSaveButton.Text = "Disable \"standard\" save button";
+            this.chkDisableStandardSaveButton.Text = "Disabilita bottone di salvataggio \"STANDARD\"";
             this.chkDisableStandardSaveButton.UseVisualStyleBackColor = true;
             // 
             // openFileDialogImage
@@ -601,24 +619,6 @@
             this.pictureBoxLogo.TabIndex = 21;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(353, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 13);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Recommended size: 560 x 81";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(353, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(141, 13);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Recommended size: 50 x 50";
-            // 
             // FormConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -634,7 +634,7 @@
             this.MinimizeBox = false;
             this.Name = "FormConfig";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Configuration";
+            this.Text = "Configurazione";
             this.Load += new System.EventHandler(this.FormConfig_Load);
             this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);

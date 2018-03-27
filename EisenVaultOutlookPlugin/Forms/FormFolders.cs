@@ -94,7 +94,7 @@ namespace EisenVaultOutlookPlugin.Forms
             imgLoad.Visible = false;
             btnUploadSelectedFolder.Enabled = true;
         }
-       
+
 
         private async void treeViewNodes_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -104,15 +104,15 @@ namespace EisenVaultOutlookPlugin.Forms
 
 
             var tagInfo = e.Node.Tag as NodeTag;
-            if (tagInfo !=null &&
+            if (tagInfo != null &&
                 tagInfo.IsFolder &&
-                tagInfo.IsLoaded==false
+                tagInfo.IsLoaded == false
                 )
             {
                 Nodes nodes = new Nodes();
                 imgLoad.Visible = true;
                 btnUploadSelectedFolder.Enabled = false;
-                var list =await nodes.Get(tagInfo.Id);                
+                var list = await nodes.Get(tagInfo.Id);
                 foreach (NodeEntry entry in list)
                 {
                     if (isSiteChild && entry.name.ToLower() != "documentlibrary")
@@ -120,7 +120,7 @@ namespace EisenVaultOutlookPlugin.Forms
                         continue;
                     }
                     e.Node.ImageIndex = e.Node.StateImageIndex = e.Node.SelectedImageIndex = 1;
-                    
+
                     if (entry.isFolder)
                     {
                         var node = e.Node.Nodes.Add(entry.id, entry.name);
@@ -136,7 +136,7 @@ namespace EisenVaultOutlookPlugin.Forms
                 tagInfo.IsLoaded = true;
 
                 imgLoad.Visible = false;
-                btnUploadSelectedFolder.Enabled = true;              
+                btnUploadSelectedFolder.Enabled = true;
             }
             if (isSiteNode || isSiteChild)
             {
@@ -158,14 +158,26 @@ namespace EisenVaultOutlookPlugin.Forms
 
         private async void btnUpload_Click(object sender, EventArgs e)
         {
-            TreeNode node = treeViewNodes?.SelectedNode;            
-            NodeTag tag = node?.Tag as NodeTag;            
+            TreeNode node = treeViewNodes?.SelectedNode;
+            NodeTag tag = node?.Tag as NodeTag;
             if (tag != null)
             {
                 imgLoad.Visible = true; btnUploadSelectedFolder.Enabled = false;
-                Controller controller= new Controller();
-                int? folderCount =  node?.Nodes?.Count;
-                bool isUploaded = await controller.UploadEmail(EmailItem, tag.Id, folderCount);
+                Controller controller = new Controller();
+                int? folderCount = node?.Nodes?.Count;
+                bool isUploaded;
+
+                //se foldercount > 0 utilizzo l'upload con il datetime
+                if (!folderCount.HasValue || folderCount.Value == 0)
+                {
+                    isUploaded = await controller.UploadEmail(EmailItem, tag.Id, folderCount);
+                }
+                else
+                {
+                    isUploaded = await controller.UploadEmailDateTime(EmailItem, tag.Id, DateTime.Now);
+                }
+
+
                 if (isUploaded)
                 {
                     Option.Read();
@@ -176,18 +188,18 @@ namespace EisenVaultOutlookPlugin.Forms
                     dirSettings.LastUsedFolderTag = LastUsedFolderTag;
                     Option.SaveDirectorySettings(dirSettings);
 
-                    MessageBox.Show("File(s) uploaded successfully");
+                    MessageBox.Show("File(s) inviati correttamente");
                     this.Close();
                 }
                 else
                 {
                     if (string.IsNullOrEmpty(controller.Error))
-                        MessageBox.Show("Error while uploading file, Please try again!!");
+                        MessageBox.Show("Errore in fase di upload. Riprovare");
                     else
                         MessageBox.Show(controller.Error);
                 }
             }
-            imgLoad.Visible = false ; btnUploadSelectedFolder.Enabled = true;
+            imgLoad.Visible = false; btnUploadSelectedFolder.Enabled = true;
 
         }
 
@@ -208,7 +220,7 @@ namespace EisenVaultOutlookPlugin.Forms
             if (isSiteNode || isSiteChild)
                 return;
 
-            CreatedFolderId = "";            
+            CreatedFolderId = "";
             if (node != null)
             {
                 FormCreateFolder frm = new FormCreateFolder()
@@ -229,7 +241,7 @@ namespace EisenVaultOutlookPlugin.Forms
                     treeViewNodes.SelectedNode = node;
                     node.TreeView.Focus();
                 }
-                                
+
             }
 
         }
@@ -251,19 +263,35 @@ namespace EisenVaultOutlookPlugin.Forms
 
             //    txtDefaultFolderName.Text = DefaultFolderName;
             //}
-            
+
         }
 
-        private async void btnUploadDefaultFolder_Click(object sender, EventArgs e)
+        private async void UploadDefaultFolder(int tryCount = 0)
         {
-
             if (!String.IsNullOrWhiteSpace(DefaultFolderTag))
             {
+
                 imgLoad.Visible = true;
                 btnUploadDefaultFolder.Enabled = false;
 
                 Controller controller = new Controller();
-                bool isUploaded = await controller.UploadEmail(EmailItem, DefaultFolderTag, 0);
+                bool isUploaded;
+
+                if (tryCount == 0)
+                {
+                    isUploaded = await controller.UploadEmail(EmailItem, DefaultFolderTag, null);
+                }
+                else if (tryCount == 1)
+                {
+                    isUploaded = await controller.UploadEmailDateTime(EmailItem, DefaultFolderTag, DateTime.Now);
+                }
+                else
+                {
+                    imgLoad.Visible = false;
+                    btnUploadDefaultFolder.Enabled = true;
+                    return;
+                }
+                
 
                 if (isUploaded)
                 {
@@ -275,56 +303,205 @@ namespace EisenVaultOutlookPlugin.Forms
                     dirSettings.LastUsedFolderTag = LastUsedFolderTag;
                     Option.SaveDirectorySettings(dirSettings);
 
-                    MessageBox.Show("File(s) uploaded successfully");
+                    MessageBox.Show("File(s) inviati correttamente");
                     this.Close();
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(controller.Error))
-                        MessageBox.Show("Error while uploading file, Please try again!!");
-                    else
-                        MessageBox.Show(controller.Error);
+                    //se vado in errore, riprovo aggiungendo al nome del file la data e l'ora
+                    if (tryCount == 0)
+                    {
+                        UploadDefaultFolder(++tryCount);
+                        //if (!string.IsNullOrEmpty(controller.Error))/*&& controller.Error.StartsWith("Duplicate child name not allowed")*/
+                        //{
+                        //    UploadDefaultFolder(++tryCount);
+                        //}
+                    }
+                    else if (tryCount > 0)
+                    {
+                        if (string.IsNullOrEmpty(controller.Error))
+                            MessageBox.Show("Errore in fase di upload. Riprovare");
+                        else
+                            MessageBox.Show(controller.Error);
+                    }
+
                 }
 
                 imgLoad.Visible = false;
                 btnUploadDefaultFolder.Enabled = true;
             }
         }
+
+        private async void btnUploadDefaultFolder_Click(object sender, EventArgs e)
+        {
+
+            if (!String.IsNullOrWhiteSpace(DefaultFolderTag))
+            {
+                UploadDefaultFolder(0);
+            }
+            else
+            {
+                MessageBox.Show("il DefaultFolder non è stato settato correttamente");
+            }
+        }
+        //private async void btnUploadDefaultFolder_Click(object sender, EventArgs e)
+        //{
+
+        //    if (!String.IsNullOrWhiteSpace(DefaultFolderTag))
+        //    {
+        //        //TreeNode node = treeViewNodes?.Select;
+        //        //NodeTag tag = node?.Tag as NodeTag;
+        //        //int? folderCount = node?.Nodes?.Count;
+
+        //        imgLoad.Visible = true;
+        //        btnUploadDefaultFolder.Enabled = false;
+
+        //        Controller controller = new Controller();
+
+        //        //bool isUploaded = await controller.UploadEmailDateTime(EmailItem, DefaultFolderTag, DateTime.Now);
+        //        bool isUploaded = await controller.UploadEmail(EmailItem, DefaultFolderTag, 0);
+
+        //        if (isUploaded)
+        //        {
+        //            Option.Read();
+        //            DirectorySettings dirSettings = Option.GetDirectorySettings();
+        //            LastUsedFolder = DefaultFolderName;
+        //            LastUsedFolderTag = DefaultFolderTag;
+        //            dirSettings.LastUsedFolder = LastUsedFolder;
+        //            dirSettings.LastUsedFolderTag = LastUsedFolderTag;
+        //            Option.SaveDirectorySettings(dirSettings);
+
+        //            MessageBox.Show("File(s) uploaded successfully");
+        //            this.Close();
+        //        }
+        //        else
+        //        {
+        //            //retry with date format name
+        //            //if (!string.IsNullOrEmpty(controller.Error) && controller.Error.StartsWith("Duplicate child name not allowed"))
+        //            //{
+        //            //    MessageBox.Show("nome duplicato!!!");
+        //            //}
+
+
+        //            if (string.IsNullOrEmpty(controller.Error))
+        //                MessageBox.Show("Error while uploading file, Please try again!!");
+        //            else
+        //                MessageBox.Show(controller.Error);
+        //        }
+
+        //        imgLoad.Visible = false;
+        //        btnUploadDefaultFolder.Enabled = true;
+        //    }
+        //}
+
+
+
         private async void btnUploadLastFolder_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(LastUsedFolderTag))
             {
+                UploadLastFolder(0);
+            }
+            else
+            {
+                MessageBox.Show("il DefaultFolder non è stato settato correttamente");
+            }
+        }
+
+        private async void UploadLastFolder(int tryCount = 0)
+        {
+            if (!String.IsNullOrWhiteSpace(LastUsedFolderTag))
+            {
+
                 imgLoad.Visible = true;
                 btnUploadDefaultFolder.Enabled = false;
 
                 Controller controller = new Controller();
-                bool isUploaded = await controller.UploadEmail(EmailItem, LastUsedFolderTag, 0);
+                bool isUploaded;
 
+                if (tryCount == 0)
+                {
+                    isUploaded = await controller.UploadEmail(EmailItem, LastUsedFolderTag, null);
+                }
+                else if (tryCount == 1)
+                {
+                    isUploaded = await controller.UploadEmailDateTime(EmailItem, LastUsedFolderTag, DateTime.Now);
+                }
+                else
+                {
+                    imgLoad.Visible = false;
+                    btnUploadDefaultFolder.Enabled = true;
+                    return;
+                }
+                
                 if (isUploaded)
                 {
-                    //Option.Read();
-                    //DirectorySettings dirSettings = Option.GetDirectorySettings();
-                    //LastUsedFolder = DefaultFolderName;
-                    //LastUsedFolderTag = DefaultFolderTag;
-                    //dirSettings.LastUsedFolder = LastUsedFolder;
-                    //dirSettings.LastUsedFolderTag = LastUsedFolderTag;
-                    //Option.SaveDirectorySettings(dirSettings);
-
-                    MessageBox.Show("File(s) uploaded successfully");
+                    MessageBox.Show("File(s) inviati correttamente");
                     this.Close();
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(controller.Error))
-                        MessageBox.Show("Error while uploading file, Please try again!!");
-                    else
-                        MessageBox.Show(controller.Error);
+                    //se vado in errore, riprovo aggiungendo al nome del file la data e l'ora
+                    if (tryCount == 0)
+                    {
+                        UploadLastFolder(++tryCount);
+                        //if (!string.IsNullOrEmpty(controller.Error))/*&& controller.Error.StartsWith("Duplicate child name not allowed")*/
+                        //{
+                        //    UploadDefaultFolder(++tryCount);
+                        //}
+                    }
+                    else if (tryCount > 0)
+                    {
+                        if (string.IsNullOrEmpty(controller.Error))
+                            MessageBox.Show("Errore in fase di upload. Riprovare");
+                        else
+                            MessageBox.Show(controller.Error);
+                    }
+
                 }
 
                 imgLoad.Visible = false;
                 btnUploadDefaultFolder.Enabled = true;
             }
         }
+
+        //private async void btnUploadLastFolder_Click(object sender, EventArgs e)
+        //{
+        //    if (!String.IsNullOrWhiteSpace(LastUsedFolderTag))
+        //    {
+        //        imgLoad.Visible = true;
+        //        btnUploadDefaultFolder.Enabled = false;
+
+            //        Controller controller = new Controller();
+
+            //        bool isUploaded = await controller.UploadEmailDateTime(EmailItem, LastUsedFolderTag, DateTime.Now);
+            //        //bool isUploaded = await controller.UploadEmail(EmailItem, LastUsedFolderTag, 0);
+
+            //        if (isUploaded)
+            //        {
+            //            //Option.Read();
+            //            //DirectorySettings dirSettings = Option.GetDirectorySettings();
+            //            //LastUsedFolder = DefaultFolderName;
+            //            //LastUsedFolderTag = DefaultFolderTag;
+            //            //dirSettings.LastUsedFolder = LastUsedFolder;
+            //            //dirSettings.LastUsedFolderTag = LastUsedFolderTag;
+            //            //Option.SaveDirectorySettings(dirSettings);
+
+            //            MessageBox.Show("File(s) uploaded successfully");
+            //            this.Close();
+            //        }
+            //        else
+            //        {
+            //            if (string.IsNullOrEmpty(controller.Error))
+            //                MessageBox.Show("Error while uploading file, Please try again!!");
+            //            else
+            //                MessageBox.Show(controller.Error);
+            //        }
+
+            //        imgLoad.Visible = false;
+            //        btnUploadDefaultFolder.Enabled = true;
+            //    }
+            //}
 
         private void ReloadSettings()
         {
@@ -349,7 +526,7 @@ namespace EisenVaultOutlookPlugin.Forms
                 pnltxtLastFolder.Visible = !actionSettings.DisableLastSave;
             }
 
-           
+
             DirectorySettings dirSettings = Option.GetDirectorySettings();
             if (dirSettings != null)
             {
@@ -359,7 +536,7 @@ namespace EisenVaultOutlookPlugin.Forms
                 if (!String.IsNullOrWhiteSpace(DefaultFolderTag))
                 {
                     btnUploadDefaultFolder.Enabled = true;
-                    
+
                 }
                 else
                 {
@@ -372,7 +549,7 @@ namespace EisenVaultOutlookPlugin.Forms
                 if (!String.IsNullOrWhiteSpace(LastUsedFolderTag))
                 {
                     btnUploadLastFolder.Enabled = true;
-                    
+
                 }
                 else
                 {
@@ -401,9 +578,9 @@ namespace EisenVaultOutlookPlugin.Forms
                 }
                 catch (Exception ex)
                 {
-                   
+
                 }
-                
+
             }
         }
     }

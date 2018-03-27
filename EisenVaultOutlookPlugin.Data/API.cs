@@ -119,8 +119,8 @@ namespace EisenVaultOutlookPlugin.Data
                     var responseContent = response.Content;
                     string responseString = await responseContent.ReadAsStringAsync();
                     if (response.IsSuccessStatusCode)
-                    {                        
-                        
+                    {
+                        LogClass.WriteWbLog("Upload Success", "", "", "", module, "", url);
                     }
                     else
                     {

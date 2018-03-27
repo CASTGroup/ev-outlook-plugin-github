@@ -216,7 +216,7 @@ namespace EisenVaultOutlookPlugin.Forms
 
                 Option.SaveDirectorySettings(settings);
 
-                MessageBox.Show("Default folder changed", "settings", MessageBoxButtons.OK);
+                MessageBox.Show("Cartella di Default cambiata", "Impostazioni", MessageBoxButtons.OK);
             }
         }
 
@@ -229,7 +229,7 @@ namespace EisenVaultOutlookPlugin.Forms
 
             Option.SaveLabelSettings(labelSettings);
 
-            MessageBox.Show("Label settings changed", "settings", MessageBoxButtons.OK);
+            MessageBox.Show("Impostazione testi cambiata", "Impostazioni", MessageBoxButtons.OK);
         }
 
         private void btnSelectImageLogo_Click(object sender, EventArgs e)
@@ -406,7 +406,7 @@ namespace EisenVaultOutlookPlugin.Forms
 
             Option.SaveActionSettings(actionSettings);
 
-            MessageBox.Show("Action settings changed", "settings", MessageBoxButtons.OK);
+            MessageBox.Show("Impostazione azioni cambiate", "Impostazioni", MessageBoxButtons.OK);
         }
 
         private void btnRestoreImages_Click(object sender, EventArgs e)
@@ -431,7 +431,7 @@ namespace EisenVaultOutlookPlugin.Forms
 
             Option.SaveImageSettings(imageSettings);
 
-            MessageBox.Show("Image settings restored", "settings", MessageBoxButtons.OK);
+            MessageBox.Show("Impostazioni immagini ripristinate", "Impostazioni", MessageBoxButtons.OK);
 
             ReloadSettings();
 

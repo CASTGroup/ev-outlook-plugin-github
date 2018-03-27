@@ -51,7 +51,7 @@
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 17;
-            this.btnCreate.Text = "Create";
+            this.btnCreate.Text = "Crea Cartella";
             this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
@@ -67,9 +67,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Folder Name";
+            this.label1.Text = "Nome Cartella";
             // 
             // txtError
             // 
@@ -91,7 +91,7 @@
             this.groupBox1.Size = new System.Drawing.Size(560, 116);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Folder Info";
+            this.groupBox1.Text = "Dati Cartella";
             // 
             // imgLoad
             // 
@@ -128,7 +128,7 @@
             this.MinimizeBox = false;
             this.Name = "FormCreateFolder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Folder";
+            this.Text = "Crea Cartella";
             this.Load += new System.EventHandler(this.FormCreateFolder_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

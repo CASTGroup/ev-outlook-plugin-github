@@ -63,11 +63,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 32);
+            this.label1.Location = new System.Drawing.Point(17, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "User Name";
+            this.label1.Text = "Nome Utente";
             // 
             // txtUsername
             // 
@@ -87,7 +87,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 66);
+            this.label2.Location = new System.Drawing.Point(34, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 3;
@@ -103,11 +103,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 97);
+            this.label3.Location = new System.Drawing.Point(17, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Instance URL";
+            this.label3.Text = "Indirizzo URL";
             // 
             // groupBox1
             // 
@@ -123,7 +123,7 @@
             this.groupBox1.Size = new System.Drawing.Size(560, 141);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "User Info";
+            this.groupBox1.Text = "Dati di connessione";
             // 
             // lblExampleUrl
             // 

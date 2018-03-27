@@ -43,14 +43,14 @@ namespace EisenVaultOutlookPlugin.Forms
                 string.IsNullOrEmpty(Server)
             )
             {
-                Error = "Please fill all information and try again!!";
+                Error = "Riempire tutti i campi e riprovare";
                 result = false;
             }
 
 
             if (Uri.IsWellFormedUriString(Server, UriKind.RelativeOrAbsolute)==false)
             {
-                Error = "Please add a correct url!!";
+                Error = "Inserire un indirizzo corretto";
                 result = false;
             }
 
@@ -91,7 +91,7 @@ namespace EisenVaultOutlookPlugin.Forms
                 else
                 {
                     if(string.IsNullOrEmpty(account.Error))
-                        Error = "Incorrect username or password!!";
+                        Error = "Nome utente e/o password non corretti";
                     else 
                     Error = account.Error;
                 }

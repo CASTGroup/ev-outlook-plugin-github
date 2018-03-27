@@ -40,7 +40,7 @@ namespace EisenVaultOutlookPlugin.Forms
             if (string.IsNullOrEmpty(FolderName) ||
                 string.IsNullOrEmpty(NodeId))
             {
-                Error = "Please fill all information and try again!!";
+                Error = "Riempire tutti i campi e riprovare";
                 result = false;
             }           
 
@@ -71,7 +71,7 @@ namespace EisenVaultOutlookPlugin.Forms
                     this.Close();
                 }
                 if (string.IsNullOrEmpty(nodes.Error))
-                    Error = "Error when create Folder!!";
+                    Error = "Errore nella creazione della cartella";
                 else
                     Error = nodes.Error;
                

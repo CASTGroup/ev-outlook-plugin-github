@@ -52,7 +52,6 @@
             // group1
             // 
             this.group1.Items.Add(this.btnEV);
-            this.group1.Label = "EisenVault";
             this.group1.Name = "group1";
             // 
             // btnEV
