@@ -660,6 +660,37 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
+            this.groupBox1.Text = UserInterfaceStrings.FormConfigText;
+            this.tabImage.Text = UserInterfaceStrings.FormConfigtabImage;
+            this.groupBox6.Text = UserInterfaceStrings.FormConfiggroupBox6;
+            this.btnSelectImageIcon.Text = UserInterfaceStrings.FormConfigbtnSelectImage;
+
+            this.btnSaveImageIcon.Text = UserInterfaceStrings.FormConfigbtnSaveImage;
+            this.groupBox5.Text = UserInterfaceStrings.FormConfiggroupBox5;
+            this.label6.Text = UserInterfaceStrings.FormConfiglabel6;
+
+            this.btnSelectImage.Text = UserInterfaceStrings.FormConfigbtnSelectImage;
+            this.btnSaveImage.Text = UserInterfaceStrings.FormConfigbtnSaveImage;
+            this.label5.Text = UserInterfaceStrings.FormConfiglabel5;
+            this.btnSelectImageLogo.Text = UserInterfaceStrings.FormConfigbtnSelectImageLogo;
+            this.btnSaveImageLogo.Text = UserInterfaceStrings.FormConfigbtnSaveImageLogo;
+            this.btnRestoreImages.Text = UserInterfaceStrings.FormConfigbtnRestoreImages;
+            this.tabDefaultFolder.Text = UserInterfaceStrings.FormConfigtabDefaultFolder;
+            this.label3.Text = UserInterfaceStrings.FormConfiglabel3;
+            this.label2.Text = UserInterfaceStrings.FormConfiglabel2;
+            this.btnSelectDefaultFolder.Text = UserInterfaceStrings.FormConfigbtnSelectDefaultFolder;
+            this.btnCreate.Text = UserInterfaceStrings.FormConfigbtnCreate;
+            this.label1.Text = UserInterfaceStrings.FormConfiglabel1;
+            this.tabLabels.Text = UserInterfaceStrings.FormConfigtabLabels;
+            this.groupBox2.Text = UserInterfaceStrings.FormConfiggroupBox2;
+            this.label7.Text = UserInterfaceStrings.FormConfigLabel7;
+            this.label4.Text = UserInterfaceStrings.FormConfigLabel4;
+            this.tabActions.Text = UserInterfaceStrings.FormConfigTabActions;
+            this.groupBox3.Text = UserInterfaceStrings.FormConfigGroupBox3;
+            this.chkDisableLastUsedSaveButton.Text = UserInterfaceStrings.chkDisableLastUsedSaveButton;
+            this.chkDisableDefaultSaveButton.Text = UserInterfaceStrings.chkDisableDefaultSaveButton;
+            this.chkDisableStandardSaveButton.Text = UserInterfaceStrings.chkDisableStandardSaveButton;
+            this.Text = UserInterfaceStrings.FormConfigText;
         }
 
         #endregion

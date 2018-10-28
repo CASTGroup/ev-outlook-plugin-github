@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using EisenVaultOutlookPlugin.Data;
 using EisenVaultOutlookPlugin.Data.Entity;
 using EisenVaultOutlookPlugin.Data.Modul;
@@ -65,7 +66,7 @@ namespace EisenVaultOutlookPlugin.Helper
                     }
                     catch (Exception ex)
                     {
-                        // skip
+                        MessageBox.Show(ex.ToString()); //added
                     }
 
                     string PR_ATTACH_FLAGS = "http://schemas.microsoft.com/mapi/proptag/0x37140003";
@@ -75,7 +76,7 @@ namespace EisenVaultOutlookPlugin.Helper
                     }
                     catch (Exception ex)
                     {
-                        // skip
+                        MessageBox.Show(ex.ToString()); //added
                     }
 
 
@@ -180,7 +181,7 @@ namespace EisenVaultOutlookPlugin.Helper
                     }
                     catch (Exception ex)
                     {
-                        // skip
+                        MessageBox.Show(ex.ToString()); //added
                     }
 
                     string PR_ATTACH_FLAGS = "http://schemas.microsoft.com/mapi/proptag/0x37140003";
@@ -190,7 +191,7 @@ namespace EisenVaultOutlookPlugin.Helper
                     }
                     catch (Exception ex)
                     {
-                        // skip
+                        MessageBox.Show(ex.ToString()); //added
                     }
 
 

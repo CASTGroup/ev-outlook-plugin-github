@@ -136,6 +136,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
+            this.btnCreate.Text = UserInterfaceStrings.CreateFolderText;
+            this.label1.Text = UserInterfaceStrings.CreateFolderlabel1;
+            this.groupBox1.Text = UserInterfaceStrings.CreateFoldergroupBox1;
+            this.Text = UserInterfaceStrings.CreateFolderText;
         }
 
         #endregion

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EisenVaultOutlookPlugin.Data.Modul;
 using EisenVaultOutlookPlugin.Data.Entity;
+using System.Threading;
+using System.Globalization;
 
 namespace EisenVaultOutlookPlugin.Forms
 {
@@ -43,26 +45,26 @@ namespace EisenVaultOutlookPlugin.Forms
                 string.IsNullOrEmpty(Server)
             )
             {
-                Error = "Riempire tutti i campi e riprovare";
+                Error = UserInterfaceStrings.LoginReFill;
                 result = false;
             }
-
 
             if (Uri.IsWellFormedUriString(Server, UriKind.RelativeOrAbsolute)==false)
             {
-                Error = "Inserire un indirizzo corretto";
+                Error = UserInterfaceStrings.LoginCorrectUrl;
                 result = false;
             }
 
-
             return result;
-
         }
 
         public FormLogin()
         {
             InitializeComponent();
+            LocaliseInterface();
             imgLoad.Visible = false;
+
+            ConfigureLocalisationIfRemembered();
 
             var info = Globals.ThisAddIn.TempUserInfo;
             if (info != null)
@@ -70,6 +72,53 @@ namespace EisenVaultOutlookPlugin.Forms
                 Username = info.UserName;
                 Password = info.Password;
                 Server = info.Server;
+            }
+        }
+
+        private const String REG_KEY = "EisenVaultOutlookPlugin";
+        private const String LOCAL_REG_KEY = "localisation";
+
+        // copy these into FormConfig.Designer.InitializeComponent if you want locale in designer
+        // If you do the localisation in the designer the localisation is then built into the designer; 
+        // I prefer satelite resource files because it is easier to verify missing translations
+        // https://msdn.microsoft.com/en-us/library/y99d1cd3%28v=vs.85%29.aspx
+        private void LocaliseInterface()
+        {
+            this.label1.Text = UserInterfaceStrings.label1UserName;
+            this.label3.Text = UserInterfaceStrings.label3url;
+            this.groupBox1.Text = UserInterfaceStrings.groupbox1UserInfo;
+        }
+		
+        private void ConfigureLocalisationIfRemembered()
+        {
+            try
+            { 
+                Microsoft.Win32.RegistryKey registryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(REG_KEY);
+                if (registryKey != null)
+                {
+                    String loc = (String)registryKey.GetValue("localisation");
+                    if (loc != null)
+                    {
+                        switch (loc)
+                        {
+                            case "it":
+                                int index = comboBoxAvailableLanguages.FindString("Italian");
+                                comboBoxAvailableLanguages.SelectedIndex = index;
+                                break;
+                            default:
+                                comboBoxAvailableLanguages.SelectedIndex = 1;
+                                break;
+                        }
+
+                        Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(loc);
+                    }
+                    registryKey.Close();
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -91,7 +140,7 @@ namespace EisenVaultOutlookPlugin.Forms
                 else
                 {
                     if(string.IsNullOrEmpty(account.Error))
-                        Error = "Nome utente e/o password non corretti";
+                        Error = UserInterfaceStrings.LoginError;
                     else 
                     Error = account.Error;
                 }
@@ -100,19 +149,12 @@ namespace EisenVaultOutlookPlugin.Forms
                 btnLogin.Enabled = true;
             }
         }
+
         private void FormLogin_Load(object sender, EventArgs e)
         {
             ReloadSettings();
         }
-        //private void ReloadSettings()
-        //{
-        //    Option.Read();
-        //    LabelSettings labelSettings = Option.GetLabelSettings();
-        //    if (labelSettings != null)
-        //    {
-        //        lblExampleUrl.Text = labelSettings.LoginExampleInstanceUrl;
-        //    }
-        //}
+
         private void ReloadSettings()
         {
             Option.Read();
@@ -155,10 +197,45 @@ namespace EisenVaultOutlookPlugin.Forms
                 //}
 
             }
+        }
 
+        private void comboBoxAvailableLanguages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String preferredLocale = "en";
 
+            if (comboBoxAvailableLanguages.SelectedItem.ToString() == "Default")
+            {
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.InstalledUICulture;
+            }
+            else if (comboBoxAvailableLanguages.SelectedItem.ToString() == "English")
+            {
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en");
+            }
+            else if (comboBoxAvailableLanguages.SelectedItem.ToString() == "Italian")
+            {
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("it");
+                preferredLocale = "it";
+            }
+            LocaliseInterface();
 
+            RememberLocalisation(preferredLocale);
+        }
 
+        private static void RememberLocalisation(string preferredLocale)
+        {
+            try
+            {
+                Microsoft.Win32.RegistryKey registryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REG_KEY);
+                if (registryKey != null)
+                {
+                    registryKey.SetValue(LOCAL_REG_KEY, preferredLocale);
+                    registryKey.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

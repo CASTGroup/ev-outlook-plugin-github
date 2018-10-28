@@ -46,7 +46,47 @@ namespace EisenVaultOutlookPlugin.Forms
         public FormConfig()
         {
             InitializeComponent();
+            LocaliseInterface();
             imgLoad.Visible = false;
+        }
+
+        // copy these into FormConfig.Designer.InitializeComponent if you want locale in designer
+        // If you do the localisation in the designer the localisation is then built into the designer; 
+        // I prefer satelite resource files because it is easier to verify missing translations
+        // https://msdn.microsoft.com/en-us/library/y99d1cd3%28v=vs.85%29.aspx
+        private void LocaliseInterface()
+        {
+            this.groupBox1.Text = UserInterfaceStrings.FormConfigText;
+            this.tabImage.Text = UserInterfaceStrings.FormConfigtabImage;
+            this.groupBox6.Text = UserInterfaceStrings.FormConfiggroupBox6;
+            this.btnSelectImageIcon.Text = UserInterfaceStrings.FormConfigbtnSelectImage;
+
+            this.btnSaveImageIcon.Text = UserInterfaceStrings.FormConfigbtnSaveImage;
+            this.groupBox5.Text = UserInterfaceStrings.FormConfiggroupBox5;
+            this.label6.Text = UserInterfaceStrings.FormConfiglabel6;
+
+            this.btnSelectImage.Text = UserInterfaceStrings.FormConfigbtnSelectImage;
+            this.btnSaveImage.Text = UserInterfaceStrings.FormConfigbtnSaveImage;
+            this.label5.Text = UserInterfaceStrings.FormConfiglabel5;
+            this.btnSelectImageLogo.Text = UserInterfaceStrings.FormConfigbtnSelectImageLogo;
+            this.btnSaveImageLogo.Text = UserInterfaceStrings.FormConfigbtnSaveImageLogo;
+            this.btnRestoreImages.Text = UserInterfaceStrings.FormConfigbtnRestoreImages;
+            this.tabDefaultFolder.Text = UserInterfaceStrings.FormConfigtabDefaultFolder;
+            this.label3.Text = UserInterfaceStrings.FormConfiglabel3;
+            this.label2.Text = UserInterfaceStrings.FormConfiglabel2;
+            this.btnSelectDefaultFolder.Text = UserInterfaceStrings.FormConfigbtnSelectDefaultFolder;
+            this.btnCreate.Text = UserInterfaceStrings.FormConfigbtnCreate;
+            this.label1.Text = UserInterfaceStrings.FormConfiglabel1;
+            this.tabLabels.Text = UserInterfaceStrings.FormConfigtabLabels;
+            this.groupBox2.Text = UserInterfaceStrings.FormConfiggroupBox2;
+            this.label7.Text = UserInterfaceStrings.FormConfigLabel7;
+            this.label4.Text = UserInterfaceStrings.FormConfigLabel4;
+            this.tabActions.Text = UserInterfaceStrings.FormConfigTabActions;
+            this.groupBox3.Text = UserInterfaceStrings.FormConfigGroupBox3;
+            this.chkDisableLastUsedSaveButton.Text = UserInterfaceStrings.chkDisableLastUsedSaveButton;
+            this.chkDisableDefaultSaveButton.Text = UserInterfaceStrings.chkDisableDefaultSaveButton;
+            this.chkDisableStandardSaveButton.Text = UserInterfaceStrings.chkDisableStandardSaveButton;
+            this.Text = UserInterfaceStrings.FormConfigText;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -216,7 +256,7 @@ namespace EisenVaultOutlookPlugin.Forms
 
                 Option.SaveDirectorySettings(settings);
 
-                MessageBox.Show("Cartella di Default cambiata", "Impostazioni", MessageBoxButtons.OK);
+                MessageBox.Show(UserInterfaceStrings.DefaultFolderChanged, UserInterfaceStrings.Settings, MessageBoxButtons.OK);
             }
         }
 
@@ -229,7 +269,7 @@ namespace EisenVaultOutlookPlugin.Forms
 
             Option.SaveLabelSettings(labelSettings);
 
-            MessageBox.Show("Impostazione testi cambiata", "Impostazioni", MessageBoxButtons.OK);
+            MessageBox.Show(UserInterfaceStrings.LabelSettingsChanged, UserInterfaceStrings.Settings, MessageBoxButtons.OK);
         }
 
         private void btnSelectImageLogo_Click(object sender, EventArgs e)
@@ -406,7 +446,7 @@ namespace EisenVaultOutlookPlugin.Forms
 
             Option.SaveActionSettings(actionSettings);
 
-            MessageBox.Show("Impostazione azioni cambiate", "Impostazioni", MessageBoxButtons.OK);
+            MessageBox.Show(UserInterfaceStrings.ActionSettinsChanged, UserInterfaceStrings.Settings, MessageBoxButtons.OK);
         }
 
         private void btnRestoreImages_Click(object sender, EventArgs e)
@@ -431,7 +471,7 @@ namespace EisenVaultOutlookPlugin.Forms
 
             Option.SaveImageSettings(imageSettings);
 
-            MessageBox.Show("Impostazioni immagini ripristinate", "Impostazioni", MessageBoxButtons.OK);
+            MessageBox.Show(UserInterfaceStrings.ImageSettingsRestored, UserInterfaceStrings.Settings, MessageBoxButtons.OK);
 
             ReloadSettings();
 

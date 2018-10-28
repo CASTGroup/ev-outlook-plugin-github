@@ -41,9 +41,13 @@
             this.txtError = new System.Windows.Forms.Label();
             this.imgLoad = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBoxAvailableLanguages = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -65,9 +69,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(17, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nome Utente";
+            this.label1.Text = "User Name";
             // 
             // txtUsername
             // 
@@ -105,9 +109,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(17, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Indirizzo URL";
+            this.label3.Text = "Instance URL";
             // 
             // groupBox1
             // 
@@ -118,12 +122,12 @@
             this.groupBox1.Controls.Add(this.txtServer);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtPassword);
-            this.groupBox1.Location = new System.Drawing.Point(12, 112);
+            this.groupBox1.Location = new System.Drawing.Point(12, 107);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(560, 141);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dati di connessione";
+            this.groupBox1.Text = "User Info Eng";
             // 
             // lblExampleUrl
             // 
@@ -138,7 +142,7 @@
             // txtError
             // 
             this.txtError.ForeColor = System.Drawing.Color.Red;
-            this.txtError.Location = new System.Drawing.Point(15, 259);
+            this.txtError.Location = new System.Drawing.Point(12, 300);
             this.txtError.Name = "txtError";
             this.txtError.Size = new System.Drawing.Size(369, 39);
             this.txtError.TabIndex = 8;
@@ -163,6 +167,39 @@
             this.pictureBoxLogo.TabIndex = 9;
             this.pictureBoxLogo.TabStop = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.comboBoxAvailableLanguages);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(12, 254);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(187, 43);
+            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Override Localisation";
+            // 
+            // comboBoxAvailableLanguages
+            // 
+            this.comboBoxAvailableLanguages.FormattingEnabled = true;
+            this.comboBoxAvailableLanguages.Items.AddRange(new object[] {
+            "Default",
+            "English",
+            "Italian"});
+            this.comboBoxAvailableLanguages.Location = new System.Drawing.Point(69, 14);
+            this.comboBoxAvailableLanguages.Name = "comboBoxAvailableLanguages";
+            this.comboBoxAvailableLanguages.Size = new System.Drawing.Size(98, 21);
+            this.comboBoxAvailableLanguages.TabIndex = 3;
+            this.comboBoxAvailableLanguages.SelectedIndexChanged += new System.EventHandler(this.comboBoxAvailableLanguages_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Language";
+            // 
             // FormLogin
             // 
             this.AcceptButton = this.btnLogin;
@@ -170,6 +207,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(584, 345);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.imgLoad);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.txtError);
@@ -187,6 +225,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -205,5 +245,8 @@
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Label lblExampleUrl;
         private System.Windows.Forms.PictureBox imgLoad;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBoxAvailableLanguages;
     }
 }
