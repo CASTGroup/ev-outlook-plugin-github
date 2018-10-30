@@ -30,10 +30,14 @@ namespace EisenVaultOutlookPlugin.Forms
             get { return txtError.Text; }
             set { txtError.Text = value; }
         }
+    
         public FormCreateFolder()
         {
-            InitializeComponent(); imgLoad.Visible = false;
+            InitializeComponent();
+			LocaliseInterface();
+            imgLoad.Visible = false;
         }
+	
         public bool IsValid()
         {
             bool result = true;
@@ -47,6 +51,19 @@ namespace EisenVaultOutlookPlugin.Forms
             return result;
 
         }
+
+        // copy these into FormConfig.Designer.InitializeComponent if you want locale in designer
+        // If you do the localisation in the designer the localisation is then built into the designer; 
+        // I prefer satelite resource files because it is easier to verify missing translations
+        // https://msdn.microsoft.com/en-us/library/y99d1cd3%28v=vs.85%29.aspx
+        private void LocaliseInterface()        
+		{
+            this.btnCreate.Text = UserInterfaceStrings.CreateFolderText;
+            this.label1.Text = UserInterfaceStrings.CreateFolderlabel1;
+            this.groupBox1.Text = UserInterfaceStrings.CreateFoldergroupBox1;
+            this.Text = UserInterfaceStrings.CreateFolderText;
+        }	
+
         private async void btnCreate_Click(object sender, EventArgs e)
         {
             if (IsValid())
@@ -119,5 +136,6 @@ namespace EisenVaultOutlookPlugin.Forms
         {
             ReloadSettings();
         }
+
     }
 }

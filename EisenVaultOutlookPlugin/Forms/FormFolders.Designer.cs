@@ -65,7 +65,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(324, 17);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Seleziona una cartella di destinazione per le email";
+            this.label1.Text = UserInterfaceStrings.BrowseFoldersSelectFolder;
             // 
             // treeViewNodes
             // 
@@ -98,7 +98,7 @@
             this.btnUploadSelectedFolder.Name = "btnUploadSelectedFolder";
             this.btnUploadSelectedFolder.Size = new System.Drawing.Size(155, 40);
             this.btnUploadSelectedFolder.TabIndex = 13;
-            this.btnUploadSelectedFolder.Text = "Salva in Cartella Selezionata";
+            this.btnUploadSelectedFolder.Text = UserInterfaceStrings.SaveToSelectedFolder;
             this.btnUploadSelectedFolder.UseVisualStyleBackColor = false;
             this.btnUploadSelectedFolder.Click += new System.EventHandler(this.btnUpload_Click);
             // 
@@ -110,7 +110,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(155, 20);
             this.lblTitle.TabIndex = 14;
-            this.lblTitle.Text = "Seleziona Cartella";
+            this.lblTitle.Text = UserInterfaceStrings.FormFolderslblTitle;
             // 
             // lnkLogOut
             // 
@@ -131,7 +131,7 @@
             this.txtLoggedName.Name = "txtLoggedName";
             this.txtLoggedName.Size = new System.Drawing.Size(190, 23);
             this.txtLoggedName.TabIndex = 17;
-            this.txtLoggedName.Text = "Nome utente:";
+            this.txtLoggedName.Text = UserInterfaceStrings.txtLoggedName;
             this.txtLoggedName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnCreate
@@ -144,7 +144,7 @@
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(88, 23);
             this.btnCreate.TabIndex = 18;
-            this.btnCreate.Text = "Nuova Cartella";
+            this.btnCreate.Text = UserInterfaceStrings.btnCreate;
             this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
@@ -158,7 +158,7 @@
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(85, 23);
             this.btnConfig.TabIndex = 19;
-            this.btnConfig.Text = "Impostazioni";
+            this.btnConfig.Text = UserInterfaceStrings.btnConfig;
             this.btnConfig.UseVisualStyleBackColor = false;
             this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
@@ -173,7 +173,7 @@
             this.btnUploadDefaultFolder.Name = "btnUploadDefaultFolder";
             this.btnUploadDefaultFolder.Size = new System.Drawing.Size(155, 40);
             this.btnUploadDefaultFolder.TabIndex = 20;
-            this.btnUploadDefaultFolder.Text = "Salva in Cartella di Default";
+            this.btnUploadDefaultFolder.Text = UserInterfaceStrings.btnUploadDefaultFolder;
             this.btnUploadDefaultFolder.UseVisualStyleBackColor = false;
             this.btnUploadDefaultFolder.Click += new System.EventHandler(this.btnUploadDefaultFolder_Click);
             // 
@@ -188,7 +188,7 @@
             this.btnUploadLastFolder.Name = "btnUploadLastFolder";
             this.btnUploadLastFolder.Size = new System.Drawing.Size(155, 40);
             this.btnUploadLastFolder.TabIndex = 21;
-            this.btnUploadLastFolder.Text = "Salva in Ultima Cartella Usata";
+            this.btnUploadLastFolder.Text = UserInterfaceStrings.btnUploadLastFolder;
             this.btnUploadLastFolder.UseVisualStyleBackColor = false;
             this.btnUploadLastFolder.Click += new System.EventHandler(this.btnUploadLastFolder_Click);
             // 
@@ -217,7 +217,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 13);
             this.label3.TabIndex = 26;
-            this.label3.Text = "Cartella di default";
+            this.label3.Text = UserInterfaceStrings.FormConfiglabel1;
             // 
             // label4
             // 
@@ -226,7 +226,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 13);
             this.label4.TabIndex = 27;
-            this.label4.Text = "Ultima cartella usata";
+            this.label4.Text = UserInterfaceStrings.label4;
             // 
             // imgLoad
             // 
@@ -301,7 +301,7 @@
             this.MinimizeBox = false;
             this.Name = "FormFolders";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cartelle";
+            this.Text = UserInterfaceStrings.FormFolders;
             this.Load += new System.EventHandler(this.FormFolders_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHeadImage)).EndInit();

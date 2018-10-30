@@ -1,3 +1,6 @@
+28/10/2018
+Converted Italian interface into English/Italian via localization.
+
 21/08/2017
 We have added some feature to the original version:
 * Default Folder: in every client you can specify a default save folder
@@ -12,7 +15,6 @@ Here some screenshot:
 ![Settings page 4](gfxRead/004.png)
 ![Main windows](gfxRead/005.png)
 ![Login windows](gfxRead/006.png)
-
 
 Under this line the original Eisenvault's Readme.md
 

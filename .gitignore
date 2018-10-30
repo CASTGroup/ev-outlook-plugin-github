@@ -143,6 +143,7 @@ publish/
 *.pubxml
 *.publishproj
 *.msi
+*.exe
 
 # NuGet Packages
 *.nupkg
@@ -236,3 +237,4 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+*.zip
